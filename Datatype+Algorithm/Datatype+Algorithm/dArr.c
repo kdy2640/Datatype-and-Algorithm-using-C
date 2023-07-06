@@ -1,7 +1,7 @@
 #include<stdlib.h>
 #include<stdio.h>
 #include "dArr.h"
-//늘린다
+//동적배열에 10개의 항목을 더 할당한다.
 void moreallocDArr(dArr* _darr)
 {
 	int* ptr2 = (int*)malloc(sizeof(int) * (10 + _darr->iMax));
@@ -10,11 +10,11 @@ void moreallocDArr(dArr* _darr)
 	{
 		ptr2[i] = _darr->ptr[i];
 	}
+	free(_darr->ptr);
 	_darr->ptr = ptr2;
-	free(ptr2);
 }
 
-//초기화
+//동적배열을 초기화한다.
 void startDArr(dArr* _darr) 
 {
 	_darr->ptr = (int*)malloc(sizeof(int) * 10);
@@ -22,7 +22,7 @@ void startDArr(dArr* _darr)
 	_darr->iCount = 0;
 }
 
-//해제
+//동적배열을 해제한다.
 void finishDArr(dArr* _darr)
 {
 	free(_darr->ptr);
@@ -30,9 +30,10 @@ void finishDArr(dArr* _darr)
 	_darr->iCount = 0;
 }
 
-//pushback
+//동적배열의 마지막에 데이터 값을 추가한다.
 void pushDArr(dArr* _darr, int _data) 
 {
+	//다 찼는지 확인
 	if(_darr->iCount == _darr->iMax)
 	{
 		moreallocDArr(_darr);
@@ -40,7 +41,7 @@ void pushDArr(dArr* _darr, int _data)
 	_darr->ptr[_darr->iCount++] = _data;
 }
 
-//pop
+//동적배열의 마지막 데이터값을 반환하고 삭제한다.
 int popDArr(dArr* _darr)
 {
 	if (_darr->iCount == 0)
@@ -51,8 +52,7 @@ int popDArr(dArr* _darr)
 	return _darr->ptr[--_darr->iCount];
 }
 
-
-//peek
+//동적배열의 마지막 데이터 값을 반환한다.
 int peekDArr(dArr* _darr) 
 {
 	if (_darr->iCount == 0)
@@ -63,7 +63,7 @@ int peekDArr(dArr* _darr)
 	return _darr->ptr[_darr->iCount - 1];
 }
 
-//index 접근
+//동적배열의 index에 해당하는 데이터 값을 반환한다.
 int getDataDArr(dArr* _darr, int _index) 
 {
 	if (_index >= _darr->iCount) 
@@ -74,3 +74,7 @@ int getDataDArr(dArr* _darr, int _index)
 	return  _darr->ptr[_index];
 }
 
+int getLenDArr(dArr* _darr)
+{
+	return _darr->iCount;
+}

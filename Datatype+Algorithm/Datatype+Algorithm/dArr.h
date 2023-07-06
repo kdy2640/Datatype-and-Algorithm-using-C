@@ -23,6 +23,8 @@ void pushDArr(dArr* _darr, int _data);
  int peekDArr(dArr* _darr);
 
 //index Á¢±Ù
- int getDataDArr(dArr* _darr);
+ int getDataDArr(dArr* _darr, int _index);
+
+ int getLenDArr(dArr* _darr);
 
 #endif

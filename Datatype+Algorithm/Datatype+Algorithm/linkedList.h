@@ -8,15 +8,15 @@ typedef struct oneNode {
 
 typedef struct linkedList {
 	int iCount;
-	struct iNode* headPtr;
+	iNode* headPtr;
 }lList;
 
 //노드 1개 늘리기 addNode * 내부
-void addNode(lList* _llist);
+void addLList(lList* _llist , int _data);
 //초기화 startLList
 void startLList(lList* _llist);
 //추가 addHeadLList
-void addHeadList(lList* _llist, int _index);
+void insertLList(lList* _llist, int _index , int _data);
 //해제 finishLList
 void finishLList(lList* _llist);
 //인덱스 접근 getLList
