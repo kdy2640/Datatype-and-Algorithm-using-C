@@ -78,6 +78,7 @@ void finishLList(lList* _llist)
 	{
 		_llist->headPtr = temp->nextPtr;
 		free(temp);
+		temp = _llist->headPtr;
 		_llist->iCount--;
 	}
 }

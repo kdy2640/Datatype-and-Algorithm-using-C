@@ -1,26 +1,23 @@
 ﻿#include <stdio.h>
-#include "linkedList.h"
+#include "DoubleLinkedList.h"
 int main()
 {
 
 	int temp;
-	lList a;
-	startLList(&a);
-	for (int i = 1; i < 10; i++)
+	dList a;
+	startDList(&a);
+	for (int i = 0; i < 20; i++)
 	{
-		addLList(&a,i);
+		addTailDList(&a,i);
 	}
-	insertLList(&a, 4, 36);
-	deleteLList(&a, 7);
-	deleteLList(&a, 0);
-	insertLList(&a,0, 125);
-	insertLList(&a, lenLList(&a), 999);
-	insertLList(&a, lenLList(&a), 999);
-	deleteLList(&a, lenLList(&a)-1);
 
-	for (int i = 0; i < lenLList(&a); i++)
+	insertDList(&a, 8, 999);
+	deleteDList(&a, 9);
+	deleteDList(&a, 0);
+	deleteDList(&a, countDList(&a)-1);
+	for (int i = 0; i < countDList(&a); i++)
 	{
-		temp = getLLIst(&a, i);
+		temp = getDList(&a, i);
 		printf("%d\n", temp);
 	}
 }
