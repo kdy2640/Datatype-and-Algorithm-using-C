@@ -1,23 +1,22 @@
 ﻿#include <stdio.h>
-#include "DoubleLinkedList.h"
+#include "CircularLinkedList.h"
 int main()
 {
-
 	int temp;
-	dList a;
-	startDList(&a);
+	cList a;
+	startCList(&a);
 	for (int i = 0; i < 20; i++)
 	{
-		addTailDList(&a,i);
+		addTailCList(&a,i);
 	}
 
-	insertDList(&a, 8, 999);
-	deleteDList(&a, 9);
-	deleteDList(&a, 0);
-	deleteDList(&a, countDList(&a)-1);
-	for (int i = 0; i < countDList(&a); i++)
+	insertCList(&a, 8, 999);
+	deleteCList(&a, 9);
+	deleteCList(&a, 0);
+	deleteCList(&a, countCList(&a)-1);
+	for (int i = 0; i < countCList(&a); i++)
 	{
-		temp = getDList(&a, i);
+		temp = getCList(&a, i);
 		printf("%d\n", temp);
 	}
 }
