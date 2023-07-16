@@ -1,22 +1,22 @@
-﻿#include <stdio.h>
-#include "CircularLinkedList.h"
+#include <stdio.h>
+#include"linkedStack.h"
+
 int main()
 {
-	int temp;
-	cList a;
-	startCList(&a);
+	lStack ls;
+	startLStack(&ls);
 	for (int i = 0; i < 20; i++)
 	{
-		addTailCList(&a,i);
+		pushLStack(&ls, i);
+	}
+	pushLStack(&ls, 200);
+	popLStack(&ls);
+	
+	popLStack(&ls);
+	
+	for (int i = 0; i < 20; i++)
+	{
+		printf("%d\n", popLStack(&ls));
 	}
 
-	insertCList(&a, 8, 999);
-	deleteCList(&a, 9);
-	deleteCList(&a, 0);
-	deleteCList(&a, countCList(&a)-1);
-	for (int i = 0; i < countCList(&a); i++)
-	{
-		temp = getCList(&a, i);
-		printf("%d\n", temp);
-	}
 }

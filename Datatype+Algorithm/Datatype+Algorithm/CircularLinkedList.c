@@ -33,7 +33,7 @@ void startCList(cList* _clist)
 	_clist->headPtr = NULL;
 	_clist->tailPtr = NULL;
 }
-//추가 addHeadCList 정상 0 오류 -1
+//특정 인덱스에 추가 insertCList 정상 0 오류 -1
 int insertCList(cList* _clist, int _index, int _data)
 {	
 
@@ -107,6 +107,9 @@ int insertCList(cList* _clist, int _index, int _data)
 
 	}
 
+	/*
+	
+	*/
 	_clist->iCount++;
 	return 0;
 
@@ -173,7 +176,7 @@ int getCList(cList* _clist, int _index)
 	return temp2->nextPtr->iData;
 }
 
-//iCount를 반환, 맨 마지막 index+1 
+//iCount를 반환, 맨 마지막 index는 iCount-1 
 int countCList(cList* _clist) 
 { 
 	return _clist->iCount; }
